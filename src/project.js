@@ -1,13 +1,12 @@
-function createProject (name){
-    let todoList = new Array();
-
-    function addTodo(todo){
-        todoList.push(todo);
+class Project{
+    constructor(name){
+        this.name = name,
+        this.todoList = new Array()
     }
-    return {name, todoList, addTodo};
+
+    addToProject(task){
+        this.todoList.push(task)
+    }
 }
 
-
-
-
-export {createProject};
+export{Project};

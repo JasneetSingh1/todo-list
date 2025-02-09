@@ -1,8 +1,11 @@
-
-function createTodo (title, description, dueDate, priority){
-    let isComplete  = false;
-
-    return {title, description, dueDate, priority, isComplete}
+class Todo{
+    constructor(title, description, dueDate, priority){
+        this.title = title,
+        this.description = description,
+        this.dueDate = dueDate,
+        this.priority = priority,
+        this.isComplete = false;
+    }
 }
 
-export {createTodo}
+export {Todo};
