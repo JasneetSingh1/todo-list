@@ -6,6 +6,11 @@ class Todo{
         this.priority = priority,
         this.isComplete = false;
     }
+
+    toggleIsComplete(){
+        return this.isComplete ? false:true;
+    }
+
 }
 
 export {Todo};

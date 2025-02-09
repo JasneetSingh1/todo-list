@@ -7,6 +7,10 @@ class Project{
     addToProject(task){
         this.todoList.push(task)
     }
+
+    removeFromProject(task){
+        this.todoList.splice(task, 1);
+    }
 }
 
 export{Project};
