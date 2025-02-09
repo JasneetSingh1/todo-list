@@ -1,9 +1,13 @@
 function createProject (name){
     let todoList = new Array();
 
-    return {name, todoList};
+    function addTodo(todo){
+        todoList.push(todo);
+    }
+    return {name, todoList, addTodo};
 }
 
-function addTodo(project, todo){
-    project.push(todo);
-}
+
+
+
+export {createProject};
