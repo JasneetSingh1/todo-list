@@ -7,8 +7,8 @@ class Todo{
         this.isComplete = false;
     }
 
-    toggleIsComplete(){
-        return this.isComplete ? false:true;
+    toggleComplete(){
+        this.isComplete = !this.isComplete;
     }
 
 }
