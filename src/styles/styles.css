@@ -15,6 +15,8 @@ header{
     background-color: white;
     padding: 24px;
     height: 10%;
+    display: flex;
+    align-items: center;
 }
 #content-container{
     display: grid;
@@ -49,12 +51,15 @@ header{
 
 }
 
-.sidebar-projects{
+.sidebar-projects,
+.sidebar-home{
     display: flex;
     flex-direction: column;
     margin: 24px;
 }
 
-.sidebar-projects > * {
+.sidebar-projects > *,
+.sidebar-home > * {
     margin-bottom: 24px;
 }
+
