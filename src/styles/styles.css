@@ -89,12 +89,24 @@ hr{
 
 .content-body{
     display: flex;
+    flex-direction: column;
 }
 
 .task{
     margin-bottom: 16px;
+    border: 1px solid #E2E8F0;
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
 }
+
+.task > * {
+    padding: 8px;
+}
+
 
 .task-date{
     font-size: 14px;
+    font-style: italic;
 }
