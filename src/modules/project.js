@@ -6,7 +6,7 @@ class Project{
         this.name = name,
         this.todoList = new Array(),
         storeProject(this);
-        createProjectDOM(this.name);
+        
     }
 
     addToProject(task){

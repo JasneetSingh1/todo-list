@@ -1,5 +1,6 @@
 import { renderTasks } from "./dom";
 import { Project } from "./project";
+import { createProjectDOM } from "./dom";
 
 const createProject = document.querySelector(".new-project-btn");
 const Projectdialog = document.querySelector(".project-dialog");
@@ -15,6 +16,7 @@ export const projectFormSubmit = form.addEventListener("submit", (e) => {
     let name = document.body.querySelector("#name");
     
     const project = new Project(name.value);
+    createProjectDOM(name.value);
     name.value = "";
     Projectdialog.close();
 })
