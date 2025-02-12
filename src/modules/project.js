@@ -11,10 +11,17 @@ class Project{
 
     addToProject(task){
         this.todoList.push(task)
+        let list = getProject(this.name);
+        console.log(list)
+        list.todoList.push(task);
+        storeProject(list);
     }
 
     removeFromProject(task){
         this.todoList.splice(task, 1);
+        let list = getProject(this.name);
+        list.todoList.splice(task, 1);
+        storeProject(list);
     }
 }
 
