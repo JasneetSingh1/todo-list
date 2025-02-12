@@ -43,13 +43,15 @@ header{
 }
 
 
-
+hr{
+    /* color: #E2E8F0; */
+    border: 1px solid #E2E8F0;
+    width: 100%;
+}
 /* SIDEBAR */
 
 
-.sidebar-content{
 
-}
 
 .sidebar-projects,
 .sidebar-home{
@@ -63,3 +65,36 @@ header{
     margin-bottom: 24px;
 }
 
+/* CONTENT */
+
+.content-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color: white;
+    border: 1px solid #E2E8F0;
+    margin: 32px;
+    border-radius: 10px;
+}
+
+.content-container > * {
+    padding: 8px;
+}
+
+.content-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-body{
+    display: flex;
+}
+
+.task{
+    margin-bottom: 16px;
+}
+
+.task-date{
+    font-size: 14px;
+}
