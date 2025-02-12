@@ -32,13 +32,37 @@
 
                 </div>
             </div>
+        
+            <dialog class="task-dialog">
+                <form class="task-form" action="" method="dialog">
+    
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" required>
+
+                    <label for="description">Description</label>
+                    <input type="text" id="description" name="description" required>
+                    
+                    <label for="date">Date</label>
+                    <input type="date" id="date" name="dueDate" required>
+
+                    <input type="radio" id="low" name="priority" value="low" required>
+                    <label for="low">Low</label>
+                    <input type="radio" id="medium" name="priority" value="medium">
+                    <label for="medium">Medium</label>
+                    <input type="radio" id="high" name="priority" value="high">
+                    <label for="high">High</label>
+
+                    <button class="task-form-submit" type="submit">Submit</button>
+                </form>
+            </dialog>
+
         </div>
 
         <dialog class="project-dialog">
-            <form action="" method="dialog">
+            <form class="project-form" action="" method="dialog">
 
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
+                <label for="project-name">Name</label>
+                <input type="text" id="project-name" name="name" required>
 
                 <button class="form-submit" type="submit">Submit</button>
             </form>
