@@ -10,6 +10,66 @@ function createProjectDOM(project){
 
 }
 
+function renderTaskView(projectName, taskTitle){
+    const project = getProjectStored(projectName);
+    const body = document.querySelector("body");
+    const taskView = document.createElement("dialog");
+    taskView.classList.add("task-view-dialog");
+    const task = project.todoList.filter((task) => task.title == taskTitle);
+    taskView.innerHTML = `
+
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" value="${task[0].title}" readonly>
+
+                    <label for="description">Description:</label>
+                    <input type="text" id="description" name="description" value="${task[0].description}" readonly>
+                    
+                    <label for="date">Date:</label>
+                    <input type="text" id="date" name="date" value="${task[0].dueDate}" readonly>
+                    
+                    <label for="priority">Priority:</label>
+                    <input type="text" id="priority" name="priority" value="${task[0].priority}" readonly>                   
+
+                    <button class="task-view-btn" type="submit">Close</button>
+                
+            `
+    body.appendChild(taskView);
+    
+}
+
+function renderTaskEditView(projectName, taskTitle){
+    const project = getProjectStored(projectName);
+    const contentContainer = document.querySelector("#content-container");
+    const taskEditView = document.querySelector(".task-edit-dialog");
+    const task = project.todoList.filter((todo) => todo.title == taskTitle);
+    taskEditView.innerHTML = `
+
+                    <form class="task-edit-form" action="" method="dialog">
+    
+                    <label for="edittitle">Title</label>
+                    <input type="text" id="edittitle" name="title" value="${task[0].title}" required>
+
+                    <label for="editdescription">Description</label>
+                    <input type="text" id="editdescription" name="description" value="${task[0].description}" required>
+                    
+                    <label for="editdate">Date</label>
+                    <input type="date" id="editdate" name="date" value="${task[0].dueDate}" required>
+
+                    <input type="radio" id="editlow" name="priority" value="low" ${(task[0].priority == "low") ? "checked" : ""} required>
+                    <label for="editlow">Low</label>
+                    <input type="radio" id="editmedium" name="priority" value="medium" ${(task[0].priority == "medium") ? "checked" : ""} >
+                    <label for="editmedium">Medium</label>
+                    <input type="radio" id="edithigh" name="priority" value="high" ${(task[0].priority == "high") ? "checked" : ""} >
+                    <label for="edithigh">High</label>
+
+                    <button class="task-edit-form-submit" type="submit">Submit</button>
+                </form>
+                
+            `;
+    contentContainer.appendChild(taskEditView);
+}
+
+
 
 function renderTasks(projectName){
     const taskContainer = document.querySelector(".content-body");
@@ -89,4 +149,4 @@ function renderTasks(projectName){
     
 }
 
-export {createProjectDOM, renderTasks};
+export {createProjectDOM, renderTasks, renderTaskView, renderTaskEditView};
