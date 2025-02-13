@@ -73,7 +73,6 @@ export const projectTasks = projects.addEventListener("click", (e) => {
 
 
 export function handleEditTask(projectName, taskTitle) {
-    console.log(`Editing task: ${taskTitle} in project: ${projectName}`);
     renderTaskEditView(projectName, taskTitle);
     const taskEditDialog = document.querySelector(".task-edit-dialog");
     taskEditDialog.showModal();
@@ -136,8 +135,12 @@ export function handleViewTask(projectName, taskTitle) {
 
 
 export function handleDeleteTask(projectName, taskTitle) {
-    console.log(`Deleting task: ${taskTitle} in project: ${projectName}`);
-    // Add logic to remove the task from the project and update the UI.
+    const project = getProjectStored(projectName);
+    const projectList = project.todoList;
+    const targetTask = projectList.findIndex((task => task.title == taskTitle));
+    projectList.splice(targetTask, 1);
+    storeProject(project);
+    renderTasks(project.name);
 }
 
 
