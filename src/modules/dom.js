@@ -21,7 +21,7 @@ function renderTasks(projectName){
 
     const projectButton = document.querySelector(".add-task");
     projectButton.setAttribute("name", `${project.name}`);
-
+    projectButton.style.display = "block";
     
     const toDos = project.todoList;
     toDos.forEach((toDo) => {
