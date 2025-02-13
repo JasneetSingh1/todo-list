@@ -87,7 +87,9 @@ hr{
     justify-content: space-between;
 }
 
-
+.add-task{
+    display: none;
+}
 .content-body{
     display: flex;
     flex-direction: column;

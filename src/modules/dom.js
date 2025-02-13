@@ -19,12 +19,9 @@ function renderTasks(projectName){
     const projectTitle = document.querySelector(".project-header");
     projectTitle.textContent = project.name;
 
-    const contentHeader = document.querySelector(".content-header"); 
-    const projectButton = document.createElement("button");
-    projectButton.classList.add("add-task");
+    const projectButton = document.querySelector(".add-task");
     projectButton.setAttribute("name", `${project.name}`);
-    projectButton.textContent = "New Task"
-    contentHeader.appendChild(projectButton);
+
     
     const toDos = project.todoList;
     toDos.forEach((toDo) => {

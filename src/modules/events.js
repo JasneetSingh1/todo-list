@@ -9,7 +9,7 @@ const Projectdialog = document.querySelector(".project-dialog");
 const projectForm = document.querySelector(".project-form");
 const projects = document.querySelector(".sidebar-projects");
 
-const createTask = document.querySelector(".content-header");
+const createTask = document.querySelector(".add-task");
 const taskDialog = document.querySelector(".task-dialog");
 const taskForm = document.querySelector(".task-form");
 
@@ -37,16 +37,16 @@ export const taskFormSubmit = taskForm.addEventListener("submit", (e) => {
          priority = document.body.querySelector("#high");
     }
 
-    const toDo = new Todo(title, description, dueDate, priority);
+    const toDo = new Todo(title.value, description.value, dueDate.value, priority.value);
     const project = getProjectStored(e.target.name);
     console.log(project);
     console.log(project instanceof Project);
     console.log(typeof project);
-    // project.addToProject(toDo);
+    project.addToProject(toDo);
 
-    // renderTasks(e.target.name);
-    // taskForm.setAttribute("name", "" );
-    // taskDialog.close();
+    renderTasks(e.target.name);
+    taskForm.setAttribute("name", "" );
+    taskDialog.close();
 })
 
 export const projectEvent = createProject.addEventListener('click',() => {

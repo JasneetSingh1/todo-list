@@ -2,12 +2,13 @@ import { storeProject, getProjectStored } from "./storageService";
 import { createProjectDOM } from "./dom";
 
 class Project{
-    constructor(name){
+    constructor(name, todoList = new Array()){
         this.name = name,
-        this.todoList = new Array(),
+        this.todoList = todoList,
         storeProject(this);
         
     }
+
 
     addToProject(task){
         this.todoList.push(task)
