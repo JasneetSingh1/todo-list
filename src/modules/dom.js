@@ -10,6 +10,7 @@ function createProjectDOM(project){
 }
 
 
+function renderTaskView(){}
 
 function renderTasks(projectName){
     const taskContainer = document.querySelector(".content-body");
