@@ -1,4 +1,4 @@
-import { storeProject, getProject } from "./storageService";
+import { storeProject, getProjectStored } from "./storageService";
 import { createProjectDOM } from "./dom";
 
 class Project{
@@ -11,16 +11,14 @@ class Project{
 
     addToProject(task){
         this.todoList.push(task)
-        let list = getProject(this.name);
-        list.todoList.push(task);
-        storeProject(list);
+        storeProject(this);
     }
 
     removeFromProject(task){
         this.todoList.splice(task, 1);
-        let list = getProject(this.name);
-        list.todoList.splice(task, 1);
-        storeProject(list);
+        let project = getProject(this.name);
+        project.todoList.splice(task, 1);
+        storeProject(project);
     }
 }
 

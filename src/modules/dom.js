@@ -1,4 +1,4 @@
-import { getProject } from "./storageService";
+import { getProjectStored } from "./storageService";
 
 function createProjectDOM(project){
     const button = document.createElement("button");
@@ -9,13 +9,22 @@ function createProjectDOM(project){
 
 }
 
+
+
 function renderTasks(projectName){
     const taskContainer = document.querySelector(".content-body");
     taskContainer.textContent = "";
 
-    const project = getProject(projectName);
+    const project = getProjectStored(projectName);
     const projectTitle = document.querySelector(".project-header");
     projectTitle.textContent = project.name;
+
+    const contentHeader = document.querySelector(".content-header"); 
+    const projectButton = document.createElement("button");
+    projectButton.classList.add("add-task");
+    projectButton.setAttribute("name", `${project.name}`);
+    projectButton.textContent = "New Task"
+    contentHeader.appendChild(projectButton);
     
     const toDos = project.todoList;
     toDos.forEach((toDo) => {
