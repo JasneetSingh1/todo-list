@@ -1,4 +1,5 @@
 import { getProjectStored } from "./storageService";
+import { handleDeleteTask, handleEditTask, handleViewTask } from "./events";
 
 function createProjectDOM(project){
     const button = document.createElement("button");
@@ -9,8 +10,6 @@ function createProjectDOM(project){
 
 }
 
-
-function renderTaskView(){}
 
 function renderTasks(projectName){
     const taskContainer = document.querySelector(".content-body");
@@ -30,6 +29,7 @@ function renderTasks(projectName){
         const task = document.createElement("div");
         task.classList.add("task");
 
+
         const taskContent = document.createElement("div");
 
         const taskTitle = document.createElement("h3");
@@ -38,14 +38,46 @@ function renderTasks(projectName){
         const taskDate = document.createElement("p");
         taskDate.classList.add("task-date");
 
-        const taskWidget = document.createElement("div");
+        const dropDownMenu = document.createElement("div");
+        dropDownMenu.classList.add("dropdown-container");
+        dropDownMenu.setAttribute("tabindex", "-1");
+
+        const threeDots = document.createElement("div");
+        threeDots.classList.add("three-dots");
+
+        const dropdown = document.createElement("div");
+        dropdown.classList.add("dropdown");
+
+        dropDownMenu.appendChild(threeDots);
+        dropDownMenu.appendChild(dropdown);
+
+        const dropEditButton = document.createElement("button");
+        dropEditButton.classList.add("task-edit");
+        dropEditButton.textContent = "Edit";
+        
+        
+        const dropViewButton = document.createElement("button");
+        dropViewButton.classList.add("task-view");
+        dropViewButton.textContent = "View";
+
+        const dropDeleteButton = document.createElement("button");
+        dropDeleteButton.classList.add("task-delete");     
+        dropDeleteButton.textContent = "Delete";
+
+        dropEditButton.onclick = () => handleEditTask(project.name, toDo.title);
+        dropViewButton.onclick = () => handleViewTask(project.name, toDo.title);
+        dropDeleteButton.onclick = () => handleDeleteTask(project.name, toDo.title);
+
+        dropdown.appendChild(dropViewButton);
+        dropdown.appendChild(dropEditButton);
+        dropdown.appendChild(dropDeleteButton);
 
         taskTitle.textContent = toDo.title;
         taskDescription.textContent = toDo.description;
         taskDate.textContent = toDo.dueDate;
 
         task.appendChild(taskContent);
-        task.appendChild(taskWidget);
+        task.appendChild(dropDownMenu);
         taskContent.appendChild(taskTitle);
         taskContent.appendChild(taskDescription);
         taskContent.appendChild(taskDate);
