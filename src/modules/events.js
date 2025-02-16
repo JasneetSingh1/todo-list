@@ -38,14 +38,14 @@ export const taskFormSubmit = taskForm.addEventListener("submit", (e) => {
          priority = document.body.querySelector("#high");
     }
 
-    const toDo = new Todo(title.value, description.value, dueDate.value, priority.value);
+    const toDo = new Todo(title.value, description.value, dueDate.value, priority.value, false);
     const project = getProjectStored(e.target.name);
     project.addToProject(toDo);
 
     title.value = "";
     description.value = "";
     dueDate.value = "";
-    priority.value = "";
+    priority.checked = false;
 
     renderTasks(e.target.name);
     taskForm.setAttribute("name", "" );
@@ -144,3 +144,15 @@ export function handleDeleteTask(projectName, taskTitle) {
 }
 
 
+
+export function toggleTaskComplete(projectName, taskTitle){
+    const project = getProjectStored(projectName);
+    for(let i = 0; i < project.todoList.length; i++){
+        let toDo = project.todoList[i];    
+        if(toDo.title == taskTitle){
+            toDo.toggleComplete();
+            console.log(toDo);
+            storeProject(project);
+        }
+    }
+}

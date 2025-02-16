@@ -1,5 +1,5 @@
 import { getProjectStored } from "./storageService";
-import { handleDeleteTask, handleEditTask, handleViewTask } from "./events";
+import { handleDeleteTask, handleEditTask, handleViewTask, toggleTaskComplete } from "./events";
 
 function createProjectDOM(project){
     const button = document.createElement("button");
@@ -96,7 +96,7 @@ function renderTasks(projectName){
         const taskCheck = document.createElement("input");
         taskCheck.setAttribute("type", "checkbox");
         taskCheck.setAttribute("name", "completed");
-        
+        taskCheck.onclick = () => toggleTaskComplete(project.name, toDo.title);
 
         const checkboxContainer = document.createElement("div");
         checkboxContainer.classList.add("checkbox-container");
