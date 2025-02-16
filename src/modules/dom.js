@@ -91,6 +91,19 @@ function renderTasks(projectName){
 
 
         const taskContent = document.createElement("div");
+        taskContent.classList.add("task-content");
+
+        const taskCheck = document.createElement("input");
+        taskCheck.setAttribute("type", "checkbox");
+        taskCheck.setAttribute("name", "completed");
+        
+
+        const checkboxContainer = document.createElement("div");
+        checkboxContainer.classList.add("checkbox-container");
+        
+
+        const taskDetails = document.createElement("div");
+        taskDetails.classList.add("task-details");
 
         const taskTitle = document.createElement("h3");
         const taskDescription = document.createElement("p");
@@ -138,9 +151,13 @@ function renderTasks(projectName){
 
         task.appendChild(taskContent);
         task.appendChild(dropDownMenu);
-        taskContent.appendChild(taskTitle);
-        taskContent.appendChild(taskDescription);
-        taskContent.appendChild(taskDate);
+        checkboxContainer.appendChild(taskCheck);
+        taskDetails.appendChild(taskTitle);
+        taskDetails.appendChild(taskDescription);
+        taskDetails.appendChild(taskDate);
+
+        taskContent.appendChild(checkboxContainer);
+        taskContent.appendChild(taskDetails);
 
         taskContainer.appendChild(task);
 

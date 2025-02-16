@@ -112,7 +112,15 @@ hr{
     font-style: italic;
 }
 
+.task-content{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
 
+.checkbox-container{
+    padding-right: 8px;
+}
 
 /* DROPDOWN MENU */
 
