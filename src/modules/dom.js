@@ -93,10 +93,13 @@ function renderTasks(projectName){
         const taskContent = document.createElement("div");
         taskContent.classList.add("task-content");
 
+
         const taskCheck = document.createElement("input");
         taskCheck.setAttribute("type", "checkbox");
         taskCheck.setAttribute("name", "completed");
-        taskCheck.onclick = () => toggleTaskComplete(project.name, toDo.title);
+        if(toDo.isComplete == true){
+            taskCheck.setAttribute("checked", "checked");
+        }
 
         const checkboxContainer = document.createElement("div");
         checkboxContainer.classList.add("checkbox-container");
@@ -160,7 +163,7 @@ function renderTasks(projectName){
         taskContent.appendChild(taskDetails);
 
         taskContainer.appendChild(task);
-
+        taskCheck.onclick = () => toggleTaskComplete(project.name, toDo.title, taskContent);
         
     })
     

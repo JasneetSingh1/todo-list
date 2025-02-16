@@ -145,7 +145,8 @@ export function handleDeleteTask(projectName, taskTitle) {
 
 
 
-export function toggleTaskComplete(projectName, taskTitle){
+export function toggleTaskComplete(projectName, taskTitle, taskContent){
+    console.log(taskContent);
     const project = getProjectStored(projectName);
     for(let i = 0; i < project.todoList.length; i++){
         let toDo = project.todoList[i];    
