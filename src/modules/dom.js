@@ -70,6 +70,15 @@ function renderTaskEditView(projectName, taskTitle){
 }
 
 
+function updateTaskOpacity(taskElement, isComplete){
+    if(isComplete == true){
+        taskElement.classList.add("completed");
+    }else{
+        taskElement.classList.remove("completed");
+    }
+}
+
+
 
 function renderTasks(projectName){
     const taskContainer = document.querySelector(".content-body");
@@ -97,9 +106,7 @@ function renderTasks(projectName){
         const taskCheck = document.createElement("input");
         taskCheck.setAttribute("type", "checkbox");
         taskCheck.setAttribute("name", "completed");
-        if(toDo.isComplete == true){
-            taskCheck.setAttribute("checked", "checked");
-        }
+
 
         const checkboxContainer = document.createElement("div");
         checkboxContainer.classList.add("checkbox-container");
@@ -107,7 +114,10 @@ function renderTasks(projectName){
 
         const taskDetails = document.createElement("div");
         taskDetails.classList.add("task-details");
-
+        if(toDo.isComplete == true){
+            taskCheck.setAttribute("checked", "checked");
+            updateTaskOpacity(taskDetails, toDo.isComplete);
+        }
         const taskTitle = document.createElement("h3");
         const taskDescription = document.createElement("p");
 
@@ -163,10 +173,10 @@ function renderTasks(projectName){
         taskContent.appendChild(taskDetails);
 
         taskContainer.appendChild(task);
-        taskCheck.onclick = () => toggleTaskComplete(project.name, toDo.title, taskContent);
+        taskCheck.onclick = () => toggleTaskComplete(project.name, toDo.title, taskDetails);
         
     })
     
 }
 
-export {createProjectDOM, renderTasks, renderTaskView, renderTaskEditView};
+export {createProjectDOM, renderTasks, renderTaskView, renderTaskEditView, updateTaskOpacity};

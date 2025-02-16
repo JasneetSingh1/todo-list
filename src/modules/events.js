@@ -1,4 +1,4 @@
-import { renderTasks, renderTaskView, renderTaskEditView} from "./dom";
+import { renderTasks, renderTaskView, renderTaskEditView, updateTaskOpacity} from "./dom";
 import { Project } from "./project";
 import { createProjectDOM } from "./dom";
 import { Todo } from "./todo";
@@ -145,13 +145,13 @@ export function handleDeleteTask(projectName, taskTitle) {
 
 
 
-export function toggleTaskComplete(projectName, taskTitle, taskContent){
-    console.log(taskContent);
+export function toggleTaskComplete(projectName, taskTitle, taskDetails){
     const project = getProjectStored(projectName);
     for(let i = 0; i < project.todoList.length; i++){
         let toDo = project.todoList[i];    
         if(toDo.title == taskTitle){
             toDo.toggleComplete();
+            updateTaskOpacity(taskDetails, toDo.isComplete);
             console.log(toDo);
             storeProject(project);
         }
