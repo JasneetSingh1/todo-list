@@ -17,7 +17,7 @@ This is a to-do list web application that allows users to create and manage task
 
 Provide a link to a live demo. Use gh-pages, Netlify, or Vercel.
 
-Click here: [https://link-to-your-demo-goes-here/](https://link-to-your-demo-goes-here/)
+Click here: [https://jasneetsingh1.github.io/todo-list/](https://jasneetsingh1.github.io/todo-list/)
 
 
 ## Features
