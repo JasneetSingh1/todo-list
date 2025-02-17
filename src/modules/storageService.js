@@ -14,4 +14,17 @@ function getProjectStored(name){
     return new Project(result.name, todos);
 }
 
-export {storeProject, getProjectStored};
+function getAllProjects(){
+    let archive = [],
+    keys = Object.keys(sessionStorage),
+    i = 0, 
+    key;
+
+    for (; key = keys[i]; i++) {
+        archive.push( key);
+    }
+
+    return archive;
+}
+
+export {storeProject, getProjectStored, getAllProjects};

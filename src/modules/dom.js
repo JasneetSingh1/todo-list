@@ -1,5 +1,6 @@
 import { getProjectStored } from "./storageService";
 import { handleDeleteTask, handleEditTask, handleViewTask, toggleTaskComplete } from "./events";
+import { getAllProjects } from "./storageService";
 
 function createProjectDOM(project){
     const button = document.createElement("button");
@@ -86,6 +87,17 @@ function updateTaskOpacity(taskElement, isComplete){
 }
 
 
+function renderProjects(){
+    const content = document.querySelector(".sidebar-projects");
+    content.textContent = "";
+    const projects = getAllProjects();
+    projects.forEach((project) => {
+        const button = document.createElement("button");
+        button.classList.add(`project`);
+        button.textContent = project;
+        content.appendChild(button);
+    })
+}
 
 function renderTasks(projectName){
     const taskContainer = document.querySelector(".content-body");
@@ -186,4 +198,11 @@ function renderTasks(projectName){
     
 }
 
-export {createProjectDOM, renderTasks, renderTaskView, renderTaskEditView, updateTaskOpacity};
+export {
+    createProjectDOM, 
+    renderTasks, 
+    renderTaskView, 
+    renderTaskEditView, 
+    updateTaskOpacity, 
+    renderProjects
+};

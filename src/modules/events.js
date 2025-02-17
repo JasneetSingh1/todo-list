@@ -1,4 +1,4 @@
-import { renderTasks, renderTaskView, renderTaskEditView, updateTaskOpacity} from "./dom";
+import { renderTasks, renderTaskView, renderTaskEditView, updateTaskOpacity, renderProjects} from "./dom";
 import { Project } from "./project";
 import { createProjectDOM } from "./dom";
 import { Todo } from "./todo";
@@ -59,9 +59,21 @@ export const projectEvent = createProject.addEventListener('click',() => {
 export const projectFormSubmit = projectForm.addEventListener("submit", (e) => {
     e.preventDefault();
     let name = document.body.querySelector("#project-name");
+    let verify;
+
+    try{
+        verify = getProjectStored(name.value);
+    }catch(e){}
+
     
-    const project = new Project(name.value);
-    createProjectDOM(project.name);
+    if(verify == null){
+        const project = new Project(name.value);
+        renderProjects();
+    }else{
+        alert("Project already exists");
+        return;
+    }
+
     name.value = "";
     Projectdialog.close();
 })
