@@ -2,11 +2,11 @@ import { Project } from "./project";
 import { Todo } from "./todo";
 
 function storeProject(project){
-    sessionStorage.setItem(project.name, JSON.stringify(project));
+    localStorage.setItem(project.name, JSON.stringify(project));
 }
 
 function getProjectStored(name){
-    const result = JSON.parse(sessionStorage.getItem(name));
+    const result = JSON.parse(localStorage.getItem(name));
     const todos = result.todoList.map((todo) => {
     let newTodo = new Todo(todo.title, todo.description, todo.dueDate, todo.priority, todo.isComplete);
        return todo =  newTodo;
@@ -16,7 +16,7 @@ function getProjectStored(name){
 
 function getAllProjects(){
     let archive = [],
-    keys = Object.keys(sessionStorage),
+    keys = Object.keys(localStorage),
     i = 0, 
     key;
 
