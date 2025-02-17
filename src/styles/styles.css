@@ -9,7 +9,27 @@ body{
 }
 
 
+button{
+    padding: 16px 32px;
+    background-color: #10b981;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+}
 
+.task-view,
+.task-edit,
+.task-delete{
+    color: black;
+}
+
+button:hover{
+    background-color: #139b77;
+    transition: all 5ms ease-in-out;
+
+}
 header{
     border: 1px solid #E2E8F0;
     background-color: white;
@@ -175,3 +195,102 @@ hr{
     font-size: 20px;
     padding: 0 5px;
   }
+
+
+
+  /* PROJECT DIALOG */
+
+
+  .project-dialog{
+    
+    align-self: safe center;
+    justify-self: safe center;
+    width: 400px;
+    height: 250px;
+    border: 5px solid rgb(249 250 251); 
+    box-shadow: 2px 2px 5px 2px rgb(164, 164, 165); 
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .project-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .project-form > hr {
+    margin-bottom: 24px ;
+  }
+
+  .project-form > h1{
+    margin: 16px 0px;
+    text-align: center;
+  }
+
+  .project-form > input{
+    margin-bottom: 24px;
+    padding: 8px 16px;
+    border-radius: 5px;
+  }
+
+  /* TASK DIALOG */
+
+  .task-dialog, .task-edit-dialog, .task-view-dialog{
+    align-self: safe center;
+    justify-self: safe center;
+    width: 600px;
+    height: 1000px;
+    border: 5px solid rgb(249 250 251); 
+    box-shadow: 2px 2px 5px 2px rgb(164, 164, 165); 
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .task-form, .task-edit-form, .task-view-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .task-form > h1, .task-edit-form > h1 , .task-view-form > h1{
+    text-align: center;
+    margin: 16px 0px;
+  }
+
+  .task-form > hr, .task-edit-form > hr , .task-view-form > hr{
+    margin-bottom: 24px ;
+  }
+
+  .task-form > input, .task-edit-form > input, .task-view-form > input{
+    margin-bottom: 24px;
+    width: 50%;
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: 1px solid black;
+  }
+
+  
+  .task-form > textarea, .task-edit-form > textarea, .task-view-form > textarea{
+    margin-bottom: 24px;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 8px 16px;
+  }
+
+  .priority-label{
+    margin-top: 24px;
+    margin-bottom: 16px;
+  }
+
+  .task-form-submit, .task-edit-form, .task-view-form {
+    margin-top: 24px;
+  }
+
+  label{
+    margin-bottom: 4px;
+  }
+

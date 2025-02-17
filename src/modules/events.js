@@ -67,8 +67,11 @@ export const projectFormSubmit = projectForm.addEventListener("submit", (e) => {
 })
 
 export const projectTasks = projects.addEventListener("click", (e) => {
+    try{
     renderTasks(e.target.textContent);
-  
+    } catch(e){
+        // render home
+    }
 })
 
 

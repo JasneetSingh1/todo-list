@@ -17,21 +17,23 @@ function renderTaskView(projectName, taskTitle){
     taskView.classList.add("task-view-dialog");
     const task = project.todoList.filter((task) => task.title == taskTitle);
     taskView.innerHTML = `
+                    <form class="task-view-form" action="" method="dialog">
+                        <h1>View task</h1>
+                        <hr>
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title" value="${task[0].title}" readonly>
 
-                    <label for="title">Title:</label>
-                    <input type="text" id="title" name="title" value="${task[0].title}" readonly>
+                        <label for="description">Description:</label>
+                        <textarea id="description" name="description"  readonly cols="50" rows="10" >${task[0].description}</textarea>
+                        
+                        <label for="date">Date:</label>
+                        <input type="text" id="date" name="date" value="${task[0].dueDate}" readonly>
+                        
+                        <label class="priority-label" for="">Priority:</label>
+                        <input type="text" id="priority" name="priority" value="${task[0].priority}" readonly>                   
 
-                    <label for="description">Description:</label>
-                    <input type="text" id="description" name="description" value="${task[0].description}" readonly>
-                    
-                    <label for="date">Date:</label>
-                    <input type="text" id="date" name="date" value="${task[0].dueDate}" readonly>
-                    
-                    <label for="priority">Priority:</label>
-                    <input type="text" id="priority" name="priority" value="${task[0].priority}" readonly>                   
-
-                    <button class="task-view-btn" type="submit">Close</button>
-                
+                        <button class="task-view-btn" type="submit">Close</button>
+                    </form>
             `
     body.appendChild(taskView);
     
@@ -45,22 +47,27 @@ function renderTaskEditView(projectName, taskTitle){
     taskEditView.innerHTML = `
 
                     <form class="task-edit-form" action="" method="dialog">
-    
+                    <h1>Edit task</h1>
+                    <hr>
                     <label for="edittitle">Title</label>
                     <input type="text" id="edittitle" name="title" value="${task[0].title}" required>
 
                     <label for="editdescription">Description</label>
-                    <input type="text" id="editdescription" name="description" value="${task[0].description}" required>
+                    <textarea id="editdescription" cols="50" rows="10" name="description" required>${task[0].description}</textarea>
                     
                     <label for="editdate">Date</label>
                     <input type="date" id="editdate" name="date" value="${task[0].dueDate}" required>
 
-                    <input type="radio" id="editlow" name="priority" value="low" ${(task[0].priority == "low") ? "checked" : ""} required>
+                    <label class="priority-label" for="">Priority:</label>
                     <label for="editlow">Low</label>
-                    <input type="radio" id="editmedium" name="priority" value="medium" ${(task[0].priority == "medium") ? "checked" : ""} >
+                    <input type="radio" id="editlow" name="priority" value="low" ${(task[0].priority == "low") ? "checked" : ""} required>
+                    
                     <label for="editmedium">Medium</label>
-                    <input type="radio" id="edithigh" name="priority" value="high" ${(task[0].priority == "high") ? "checked" : ""} >
+                    <input type="radio" id="editmedium" name="priority" value="medium" ${(task[0].priority == "medium") ? "checked" : ""} >
+                    
                     <label for="edithigh">High</label>
+                    <input type="radio" id="edithigh" name="priority" value="high" ${(task[0].priority == "high") ? "checked" : ""} >
+                    
 
                     <button class="task-edit-form-submit" type="submit">Submit</button>
                 </form>
